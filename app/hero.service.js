@@ -16,6 +16,17 @@
 		});
 	};
 
+	HeroService.prototype.getHeroesSlowly = function() {
+		return new Promise(function(resolve, reject) {
+			if (app.HEROES) {
+				setTimeout(resolve(app.HEROES), 2000);
+			}
+			else {
+				reject("Could not get Heroes");
+			}
+		});
+	};
+
 	app.HeroService = HeroService;
 
 })(window.app || (window.app = {}));

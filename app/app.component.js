@@ -5,7 +5,7 @@
     app.AppComponent = ng.core.Component({
         selector: 'my-app',
         template:
-            '<h1>{{ title }}: {{getName()}}</h1>' +
+            '<h1>{{ title }}</h1>' +
             '<ul class="heroes">' +
                 '<li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">' +
                     '<span class="badge">{{hero.id}}</span> {{hero.name}}' +
@@ -14,18 +14,26 @@
             '<my-hero-detail [hero]="selectedHero"></my-hero-detail>'
     })
     .Class({
-        constructor: function() {
+        constructor: [function() {
+            // This is wrong as stated https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
+            // We would replace with DI
+            this.heroService = new app.HeroService();
             this.title = "Hero Detail";
-            this.heroes = new app.Hero().heroes;
+            this.heroes = [];
             this.selectedHero = {};
+        }],
+
+        getHeroes: function() {
+            this.heroService.getHeroes().then(heroes => this.heroes = heroes);
         },
 
-        getName: function() {
-            return 'Windstorm';
+        ngOnInit: function() {
+              this.getHeroes();
         },
 
         onSelect: function(hero) {
             this.selectedHero = hero;
         }
     });
+
 })(window.app || (window.app = {}));

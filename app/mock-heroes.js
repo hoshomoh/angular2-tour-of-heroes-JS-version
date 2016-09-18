@@ -15,10 +15,6 @@
         { id: 20, name: 'Tornado' }
     ];
 
-	function Hero() {
-		this.heroes = HEROES;
-	}
-
-	app.Hero = Hero;
+	app.HEROES = HEROES;
 
 })(window.app || (window.app = {}));

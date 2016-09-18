@@ -4,6 +4,7 @@
 
     app.AppComponent = ng.core.Component({
         selector: 'my-app',
+        providers: [app.HeroService],
         template:
             '<h1>{{ title }}</h1>' +
             '<ul class="heroes">' +
@@ -14,10 +15,8 @@
             '<my-hero-detail [hero]="selectedHero"></my-hero-detail>'
     })
     .Class({
-        constructor: [function() {
-            // This is wrong as stated https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
-            // We would replace with DI
-            this.heroService = new app.HeroService();
+        constructor: [app.HeroService, function(service) {
+            this.heroService = service;
             this.title = "Hero Detail";
             this.heroes = [];
             this.selectedHero = {};

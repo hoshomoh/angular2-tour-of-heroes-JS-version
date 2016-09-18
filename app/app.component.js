@@ -1,20 +1,6 @@
-/**
- * Created by oshomo.oforomeh on 16/09/2016.
- */
-(function(app) {
+"use strict";
 
-    const HEROES = [
-        { id: 11, name: 'Mr. Nice' },
-        { id: 12, name: 'Narco' },
-        { id: 13, name: 'Bombasto' },
-        { id: 14, name: 'Celeritas' },
-        { id: 15, name: 'Magneta' },
-        { id: 16, name: 'RubberMan' },
-        { id: 17, name: 'Dynama' },
-        { id: 18, name: 'Dr IQ' },
-        { id: 19, name: 'Magma' },
-        { id: 20, name: 'Tornado' }
-    ];
+(function(app) {
 
     app.AppComponent = ng.core.Component({
         selector: 'my-app',
@@ -25,19 +11,12 @@
                     '<span class="badge">{{hero.id}}</span> {{hero.name}}' +
                 '</li>' +
             '</ul>' +
-            '<div *ngIf="selectedHero">' +
-                '<h2>{{selectedHero.name}} details!</h2>' +
-                '<div><label>id: </label>{{selectedHero.id}}</div>' +
-                '<div>' +
-                    '<label>name: </label>' +
-                    '<input [(ngModel)]="selectedHero.name" placeholder="name"/>' +
-                '</div>' +
-            '</div>'
+            '<my-hero-detail [hero]="selectedHero"></my-hero-detail>'
     })
     .Class({
         constructor: function() {
             this.title = "Hero Detail";
-            this.heroes = HEROES;
+            this.heroes = new app.Hero().heroes;
             this.selectedHero = {};
         },
 

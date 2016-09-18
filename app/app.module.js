@@ -1,6 +1,5 @@
-/**
- * Created by oshomo.oforomeh on 16/09/2016.
- */
+"use strict";
+
 (function(app) {
     app.AppModule =
         ng.core.NgModule({
@@ -8,7 +7,10 @@
                 ng.platformBrowser.BrowserModule,
                 ng.forms.FormsModule
             ],
-            declarations: [ app.AppComponent ],
+            declarations: [ 
+                app.AppComponent,
+                app.HeroDetailComponent
+            ],
             bootstrap: [ app.AppComponent ]
         })
         .Class({

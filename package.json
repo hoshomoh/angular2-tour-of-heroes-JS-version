@@ -1,5 +1,5 @@
 {
-  "name": "angular2-quickstart-JS-version",
+  "name": "angular2-quickstart-js-version",
   "version": "1.0.0",
   "scripts": {
     "start": "npm run lite",

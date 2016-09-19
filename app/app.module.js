@@ -9,6 +9,7 @@
             ],
             declarations: [ 
                 app.AppComponent,
+                app.HeroesComponent,
                 app.HeroDetailComponent
             ],
             bootstrap: [ app.AppComponent ]

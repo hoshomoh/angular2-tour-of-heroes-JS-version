@@ -5,9 +5,11 @@
         ng.core.NgModule({
             imports: [
                 ng.platformBrowser.BrowserModule,
-                ng.forms.FormsModule
+                ng.forms.FormsModule,
+                app.routing
             ],
             declarations: [ 
+                app.HomeComponent,
                 app.AppComponent,
                 app.HeroesComponent,
                 app.HeroDetailComponent

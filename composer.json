@@ -1,0 +1,7 @@
+{
+    "name": "angular2-quickstart-js-version",
+    "description": "angular2 quickstart heroes project written in JS",
+    "keywords": ["angular", "angular2"],
+    "license": "MIT",
+    "type": "project"
+}

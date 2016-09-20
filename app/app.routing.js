@@ -3,9 +3,10 @@
 (function(app) {
 	var RouterModule = ng.router.RouterModule;
 	var appRoutes = [
-		// This is an hack to solve the ```cannot match any route error for '/'```. 
-		{ path: '', component: app.HomeComponent },  
-        { path: 'heroes', component: app.HeroesComponent }
+		{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },  
+        { path: 'heroes', component: app.HeroesComponent },
+		{ path: 'dashboard', component: app.DashboardComponent},
+		{ path: 'detail/:id', component: app.HeroDetailComponent },
     ];
 
 	app.routing = RouterModule.forRoot(appRoutes, { useHash: true });

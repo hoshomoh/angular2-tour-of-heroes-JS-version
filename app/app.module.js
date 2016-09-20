@@ -8,9 +8,9 @@
                 ng.forms.FormsModule,
                 app.routing
             ],
-            declarations: [ 
-                app.HomeComponent,
+            declarations: [
                 app.AppComponent,
+                app.DashboardComponent,
                 app.HeroesComponent,
                 app.HeroDetailComponent
             ],

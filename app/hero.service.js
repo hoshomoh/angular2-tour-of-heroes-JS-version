@@ -27,6 +27,18 @@
 		});
 	};
 
+	HeroService.prototype.getHero = function(id) {
+		return new Promise(function(resolve, reject) {
+			if (app.HEROES) {
+				let heroes = app.HEROES.find(hero => hero.id === id)
+				resolve(heroes);
+			}
+			else {
+				reject("Could not get Heroes");
+			}
+		});
+	};
+
 	app.HeroService = HeroService;
 
 })(window.app || (window.app = {}));

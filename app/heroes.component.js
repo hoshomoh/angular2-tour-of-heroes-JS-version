@@ -4,21 +4,14 @@
     app.HeroesComponent = ng.core.Component({
         selector: 'my-heroes',
         providers: [app.HeroService],
-        template:
-            '<h1>{{ title }}</h1>' +
-            '<ul class="heroes">' +
-                '<li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">' +
-                    '<span class="badge">{{hero.id}}</span> {{hero.name}}' +
-                '</li>' +
-            '</ul>' +
-            '<my-hero-detail [hero]="selectedHero"></my-hero-detail>'
+        templateUrl: 'app/heroes.component.html',
+        styleUrls:  ['app/heroes.component.css']
     })
     .Class({
-        constructor: [app.HeroService, function(service) {
+        constructor: [app.HeroService, ng.router.Router, function(service, router) {
             this.heroService = service;
-            this.title = "Hero Detail";
+            this.router = router;
             this.heroes = [];
-            this.selectedHero = {};
         }],
 
         getHeroes: function() {
@@ -31,6 +24,10 @@
 
         onSelect: function(hero) {
             this.selectedHero = hero;
+        },
+
+         gotoDetail: function(hero) {
+            this.router.navigate(['/detail', this.selectedHero.id]);
         }
     });
 
